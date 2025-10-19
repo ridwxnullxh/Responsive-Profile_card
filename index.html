@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Profile Card - Stage 0</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <article data-testid="test-profile-card" class="profile-card">
+        <figure class="profile-avatar">
+          <img
+            src="xikg.jpg"
+            alt="Profile photo of Ridwan Osuolale"
+            data-testid="test-user-avatar"
+          />
+
+          <!-- Avatar controls: upload or provide URL -->
+          <form class="avatar-controls" aria-label="Avatar controls">
+            <label class="visually-hidden" for="avatarUrl"
+              >Choose Avatar Image</label
+            >
+            <br />
+            <input
+              id="avatarFile"
+              class="input-file"
+              type="file"
+              accept="image/*"
+              aria-label="Upload avatar image"
+            />
+          </form>
+        </figure>
+
+        <div class="profile-info">
+          <header>
+            <h2 data-testid="test-user-name">Ridwan Osuolale B.</h2>
+          </header>
+
+          <p data-testid="test-user-bio" class="profile-bio" id="bio">
+            Front-end developer crafting accessible, responsive interfaces with
+            HTML, CSS, and JavaScript. I build component-driven React
+            applications focused on performance, usability, and pixel-perfect
+            design.
+          </p>
+
+          <p class="profile-time">
+            Current Time (ms):
+            <time data-testid="test-user-time" id="userTime"></time>
+          </p>
+
+          <nav aria-label="Social Links">
+            <ul class="social-links" data-testid="test-user-social-links">
+              <li>
+                <a
+                  href="https://twitter.com/ridwanullahx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="test-user-social-twitter"
+                  >Twitter</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/ridwxnullxh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="test-user-social-github"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="test-user-social-linkedin"
+                  >LinkedIn</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <section aria-labelledby="hobbies-title">
+            <h3 id="hobbies-title">Hobbies</h3>
+            <ul data-testid="test-user-hobbies">
+              <li>
+                Photography — capturing golden-hour cityscapes and candid
+                portraits
+              </li>
+              <li>
+                Traveling — getting lost in new neighborhoods and local cafés
+              </li>
+              <li>
+                UI/UX Design — sketching interfaces and experimenting with
+                micro-interactions
+              </li>
+              <li>
+                Cooking — simple weeknight recipes and trying out new spices
+              </li>
+              <li>
+                Cycling — weekend rides to clear my head and explore nearby
+                trails
+              </li>
+              <li>
+                Reading — tech blogs, product design articles, and the
+                occasional sci‑fi novel
+              </li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="dislikes-title">
+            <h3 id="dislikes-title">Dislikes</h3>
+            <ul data-testid="test-user-dislikes">
+              <li>Messy code</li>
+              <li>Slow websites</li>
+              <li>Unclear documentation</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
