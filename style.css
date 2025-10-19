@@ -1,12 +1,22 @@
+/* Theme and layout for Responsive Profile Card — glass effect + abstract background */
 :root {
-  --bg: #f3f4f6;
-  --card-bg: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  --text: #0f172a;
-  --muted: #64748b;
-  --accent: #7c3aed;
-  --accent-2: #06b6d4;
+  --bg: radial-gradient(
+      1200px 600px at 10% 10%,
+      rgba(124, 58, 237, 0.18) 0%,
+      rgba(6, 182, 212, 0.07) 20%,
+      rgba(99, 102, 241, 0.06) 40%,
+      rgba(59, 130, 246, 0.04) 60%,
+      rgba(14, 165, 233, 0.02) 100%
+    ),
+    linear-gradient(135deg, #0f172a 0%, #0b1220 100%);
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #f8fafc;
+  --muted: rgba(248, 250, 252, 0.92);
+  --accent: #ffd300;
+  --accent-2: #60a5fa;
   --radius: 1rem;
-  --shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
+  --shadow: 0 12px 40px rgba(2, 6, 23, 0.55);
 }
 
 * {
@@ -19,26 +29,36 @@ body {
   background: var(--bg);
   color: var(--text);
   margin: 0;
-  padding: 2rem;
+  padding: 3rem;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 main {
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
+/* Glass-like card */
 .profile-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  border: 1px solid var(--card-border);
+  border-radius: calc(var(--radius) * 1.1);
   box-shadow: var(--shadow);
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
   align-items: start;
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 
 /* Avatar */
@@ -52,33 +72,11 @@ main {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid rgba(124, 58, 237, 0.08);
+  border: 4px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.45);
 }
 
-.avatar-controls {
-  margin-top: 0.75rem;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.input-url {
-  padding: 0.35rem 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #e6edf3;
-  width: 160px;
-}
-.input-file {
-  display: inline-block;
-}
-.file-label {
-  font-size: 0.9rem;
-  color: var(--muted);
-  cursor: pointer;
-}
-
-/* Info Section */
+/* Info */
 .profile-info {
   text-align: center;
   width: 100%;
@@ -87,37 +85,43 @@ main {
   margin-bottom: 0.5rem;
   color: var(--accent);
   font-size: 1.9rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 }
-
 .profile-bio {
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 1rem;
   color: var(--muted);
   max-width: 65ch;
   overflow: hidden;
-  display: -webkit-box;
+  /* display: -webkit-box; */
   -webkit-line-clamp: 3;
   line-clamp: 3;
-  -webkit-box-orient: vertical;
+  /* -webkit-box-orient: vertical; */
   word-wrap: break-word;
 }
-.profile-bio.expanded {
-  -webkit-line-clamp: unset;
-  line-clamp: unset;
-}
 
-.bio-toggle {
-  display: inline-block;
-  margin-top: 0.25rem;
-  background: transparent;
-  border: 1px solid rgba(15, 23, 42, 0.06);
-  padding: 0.35rem 0.6rem;
-  border-radius: 0.45rem;
-  color: var(--accent);
-  cursor: pointer;
+.meta-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  width: 35%;
+  padding: 0px 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+
+  border-radius: 40px;
 }
-.bio-toggle:focus {
-  outline: 3px solid rgba(124, 58, 237, 0.18);
+.meta-row .profile-time {
+  color: var(--muted);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 /* Social links */
@@ -131,17 +135,43 @@ main {
   margin: 0 0 1rem 0;
 }
 .social-links a {
-  color: var(--accent-2);
+  color: var(--muted);
   text-decoration: none;
   font-weight: 700;
-  background: rgba(6, 182, 212, 0.08);
-  padding: 0.35rem 0.6rem;
-  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease;
 }
 .social-links a:hover,
 .social-links a:focus {
-  box-shadow: 0 2px 8px rgba(7, 89, 133, 0.06);
+  transform: translateY(-3px);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  color: var(--accent-2);
   outline: none;
+}
+.social-links a .icon {
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+/* Icon styles */
+.icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+  stroke: none;
+}
+.icon.small {
+  width: 0.9rem;
+  height: 0.9rem;
 }
 
 /* Sections */
@@ -150,16 +180,20 @@ section {
 }
 section h3 {
   margin-bottom: 0.25rem;
-  color: var(--text);
+  color: var(--accent);
   font-size: 1.05rem;
 }
 section ul {
   list-style: disc inside;
   padding: 0;
   margin: 0;
+  color: var(--muted);
+}
+section ul li {
+  margin: 0.35rem 0;
 }
 
-/* Focus styles for accessibility */
+/* Focus styles */
 a:focus,
 button:focus,
 input:focus {
@@ -167,15 +201,12 @@ input:focus {
   outline-offset: 2px;
 }
 
-/* --- Responsive Layout --- */
+/* Responsive */
 @media (min-width: 640px) {
   .profile-card {
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: 1.5rem;
-    padding: 1.5rem;
-  }
-  .profile-avatar {
-    align-items: center;
+    padding: 1.5rem 2rem;
   }
   .profile-avatar img {
     width: 180px;
@@ -183,23 +214,30 @@ input:focus {
   }
   .profile-info {
     text-align: left;
-    padding: 0;
   }
   .social-links {
+    justify-content: flex-start;
+  }
+  .meta-row {
     justify-content: flex-start;
   }
 }
 
 @media (min-width: 1024px) {
   main {
-    max-width: 1000px;
+    max-width: 1200px;
   }
   .profile-card {
     padding: 2rem;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 260px 1fr;
   }
   .profile-bio {
     -webkit-line-clamp: 4;
     line-clamp: 4;
   }
+}
+
+/* small interaction tweaks */
+.social-links a:active {
+  transform: translateY(1px) scale(0.998);
 }

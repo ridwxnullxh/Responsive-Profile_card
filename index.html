@@ -7,6 +7,40 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- SVG sprite for reusable icons -->
+    <svg aria-hidden="true" style="display: none">
+      <symbol id="icon-twitter" viewBox="0 0 24 24">
+        <path
+          d="M22 5.92c-.66.3-1.37.5-2.12.6.76-.46 1.34-1.2 1.62-2.07-.71.42-1.5.72-2.34.88A3.7 3.7 0 0 0 12 9.5c0 .29.03.57.09.84-3.07-.15-5.8-1.63-7.63-3.88-.32.55-.5 1.18-.5 1.86 0 1.28.65 2.41 1.64 3.07-.6-.02-1.17-.18-1.66-.46v.05c0 1.8 1.28 3.3 2.98 3.64-.31.09-.63.14-.97.14-.24 0-.48-.02-.71-.07.48 1.51 1.87 2.61 3.52 2.64A7.44 7.44 0 0 1 3 19.54a10.5 10.5 0 0 0 5.67 1.66c6.8 0 10.53-5.63 10.53-10.51v-.48A7.3 7.3 0 0 0 22 5.92z"
+        />
+      </symbol>
+      <symbol id="icon-github" viewBox="0 0 24 24">
+        <path
+          d="M12 .5A12 12 0 0 0 0 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.6-.7 1.9-1.1-.8-.1-1.6-.4-1.6-1.8 0-1.2.4-2 .9-2.7-.1-.2-.4-1.3.1-2.7 0 0 .7-.2 2.4 1 .7-.2 1.5-.3 2.2-.3.7 0 1.5.1 2.2.3 1.7-1.2 2.4-1 2.4-1 .5 1.4.2 2.5.1 2.7.6.7.9 1.5.9 2.7 0 1.4-.8 1.7-1.6 1.8.5.4 1.3 1.3 1.3 2.7v4c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"
+        />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <path
+          d="M4.98 3.5A2.5 2.5 0 1 1 4.98 8.5 2.5 2.5 0 0 1 4.98 3.5zM3 9h4v12H3zM9 9h3.8v1.6h.1c.5-.9 1.7-1.9 3.6-1.9C20.9 8.7 22 11 22 14.6V21h-4v-6.1c0-1.4 0-3.2-2-3.2-2 0-2.3 1.6-2.3 3.1V21H9z"
+        />
+      </symbol>
+      <symbol id="icon-camera" viewBox="0 0 24 24">
+        <path
+          d="M4 7h3l1.3-1.6A2 2 0 0 1 10.6 4h2.8c.7 0 1.3.3 1.6.8L16 7h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zM12 9a4 4 0 1 0 .001 8.001A4 4 0 0 0 12 9z"
+        />
+      </symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24">
+        <path
+          d="M6 9l6 6 6-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+
     <main>
       <article data-testid="test-profile-card" class="profile-card">
         <figure class="profile-avatar">
@@ -15,26 +49,11 @@
             alt="Profile photo of Ridwan Osuolale"
             data-testid="test-user-avatar"
           />
-
-          <!-- Avatar controls: upload or provide URL -->
-          <form class="avatar-controls" aria-label="Avatar controls">
-            <label class="visually-hidden" for="avatarUrl"
-              >Choose Avatar Image</label
-            >
-            <br />
-            <input
-              id="avatarFile"
-              class="input-file"
-              type="file"
-              accept="image/*"
-              aria-label="Upload avatar image"
-            />
-          </form>
         </figure>
 
         <div class="profile-info">
           <header>
-            <h2 data-testid="test-user-name">Ridwan Osuolale B.</h2>
+            <h2 data-testid="test-user-name">Ridwan Osuolale Babatunde</h2>
           </header>
 
           <p data-testid="test-user-bio" class="profile-bio" id="bio">
@@ -44,10 +63,12 @@
             design.
           </p>
 
-          <p class="profile-time">
-            Current Time (ms):
-            <time data-testid="test-user-time" id="userTime"></time>
-          </p>
+          <div class="meta-row">
+            <p class="profile-time">
+              Current Time (ms):
+              <time data-testid="test-user-time" id="userTime"></time>
+            </p>
+          </div>
 
           <nav aria-label="Social Links">
             <ul class="social-links" data-testid="test-user-social-links">
@@ -57,8 +78,12 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   data-testid="test-user-social-twitter"
-                  >Twitter</a
                 >
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-twitter"></use>
+                  </svg>
+                  <span>Twitter</span>
+                </a>
               </li>
               <li>
                 <a
@@ -66,8 +91,12 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   data-testid="test-user-social-github"
-                  >GitHub</a
                 >
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-github"></use>
+                  </svg>
+                  <span>GitHub</span>
+                </a>
               </li>
               <li>
                 <a
@@ -75,8 +104,12 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   data-testid="test-user-social-linkedin"
-                  >LinkedIn</a
                 >
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-linkedin"></use>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
               </li>
             </ul>
           </nav>
@@ -84,28 +117,10 @@
           <section aria-labelledby="hobbies-title">
             <h3 id="hobbies-title">Hobbies</h3>
             <ul data-testid="test-user-hobbies">
-              <li>
-                Photography — capturing golden-hour cityscapes and candid
-                portraits
-              </li>
-              <li>
-                Traveling — getting lost in new neighborhoods and local cafés
-              </li>
-              <li>
-                UI/UX Design — sketching interfaces and experimenting with
-                micro-interactions
-              </li>
-              <li>
-                Cooking — simple weeknight recipes and trying out new spices
-              </li>
-              <li>
-                Cycling — weekend rides to clear my head and explore nearby
-                trails
-              </li>
-              <li>
-                Reading — tech blogs, product design articles, and the
-                occasional sci‑fi novel
-              </li>
+              <li>Photography</li>
+              <li>Traveling</li>
+              <li>Cooking</li>
+              <li>Gaming</li>
             </ul>
           </section>
 
