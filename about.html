@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>About — Responsive Profile Card</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main data-testid="test-about-page">
+      <article class="about-card">
+        <!-- <button class="home-btn" onclick="window.history.back()">Go Back</button -->
+        <a class="home-btn" href="/index.html">Home</a>
+        <a class="home-btn" href="/contact.html">Contact</a>
+        <header>
+          <h1>About Me</h1>
+        </header>
+        <hr />
+
+        <section
+          aria-labelledby="bio-title"
+          data-testid="test-about-bio"
+          class="about-bio"
+        >
+          <h2 id="bio-title">Bio</h2>
+          <p>
+            Front-end developer crafting accessible, responsive interfaces with
+            HTML, CSS, and JavaScript. I build component-driven React
+            applications focused on performance, usability, and pixel-perfect
+            design. I enjoy designing and maintaining scalable design systems,
+            writing clear documentation, and creating reusable UI components
+            that work across devices and assistive technologies. My workflow
+            emphasizes accessibility (WCAG), semantic markup, automated testing,
+            and performance optimization, while balancing pragmatic trade-offs
+            to ship features reliably. I collaborate closely with designers,
+            product managers, and backend engineers, mentor junior developers,
+            and continually learn new tools like TypeScript, modern build
+            tooling, and testing frameworks to improve both developer experience
+            and end-user outcomes.
+          </p>
+        </section>
+        <hr />
+
+        <section aria-labelledby="goals-title" data-testid="test-about-goals">
+          <h2 id="goals-title">Goals in this program</h2>
+          <ul>
+            <li>Improve accessibility skills</li>
+            <li>Ship more polished UI components</li>
+            <li>Learn advanced JavaScript patterns</li>
+          </ul>
+        </section>
+        <hr />
+        <section
+          aria-labelledby="confidence-title"
+          data-testid="test-about-confidence"
+        >
+          <h2 id="confidence-title">Areas of low confidence</h2>
+          <p>
+            I sometimes struggle with complex state management and backend
+            integrations. I'm also working on test-driven development habits.
+          </p>
+        </section>
+        <hr />
+        <section
+          aria-labelledby="future-title"
+          data-testid="test-about-future-note"
+        >
+          <h2 id="future-title">Note to future self</h2>
+          <p>
+            Keep practicing, ship small features often, and remember to
+            prioritize accessibility from the start.
+          </p>
+        </section>
+        <hr />
+        <section aria-labelledby="extra-title" data-testid="test-about-extra">
+          <h2 id="extra-title">Extra thoughts</h2>
+          <p>
+            Enjoy the journey, learning front-end is a long-term process. Stay
+            curious and collaborate with others.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
